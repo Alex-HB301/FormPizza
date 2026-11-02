@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#E9CA9C">
 
     <TextView
         android:id="@+id/textView"
@@ -15,20 +16,24 @@
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="8dp"
+        android:textColor="#600020"/>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:padding="4dp"
         android:text="Rozmiar"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:textColor="#700030"/>
 
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -36,43 +41,143 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        android:layout_marginEnd="16dp">
+        android:checkedButton="@id/rozmiar3">
 
 
         <RadioButton
             android:id="@+id/rozmiar3"
             android:layout_width="match_parent"
             android:layout_height="41dp"
-            android:textSize="18sp"
+            android:padding="10dp"
             android:text="3cm"
-            android:padding="10dp"/>
+            android:textSize="18sp" />
 
         <RadioButton
             android:id="@+id/rozmiar8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:padding="10dp"
             android:text="8cm"
-            android:padding="10dp"/>
+            android:textSize="18sp" />
 
         <RadioButton
             android:id="@+id/rozmiar69"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:padding="10dp"
             android:text="69cm"
-            android:padding="10dp"/>
+            android:textSize="18sp" />
 
         <RadioButton
             android:id="@+id/rozmiarOstroznie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:padding="10dp"
             android:text="3m"
-            android:padding="10dp"/>
-
-
+            android:textSize="18sp" />
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dodatki"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        android:padding="4dp"
+        android:textSize="25sp"
+        android:textColor="#700030"/>
+
+    <CheckBox
+        android:id="@+id/salame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salame"
+        android:padding="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <CheckBox
+        android:id="@+id/mielonka"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mielonka"
+        android:padding="4dp"
+        app:layout_constraintEnd_toStartOf="@+id/salame"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <CheckBox
+        android:id="@+id/pieczarka"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pieczarki"
+        android:padding="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/salame"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <CheckBox
+        android:id="@+id/winogron"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Winogrono"
+        android:padding="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/salame" />
+
+    <CheckBox
+        android:id="@+id/kukurydza"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kukurydz"
+        android:padding="4dp"
+        app:layout_constraintEnd_toStartOf="@+id/winogron"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mielonka" />
+
+    <CheckBox
+        android:id="@+id/doritos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Doritos"
+        android:padding="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/winogron"
+        app:layout_constraintTop_toBottomOf="@+id/pieczarka" />
+
+    <CheckBox
+        android:id="@+id/ananas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ananas"
+        android:padding="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/winogron" />
+
+    <CheckBox
+        android:id="@+id/kurczak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kurczak"
+        android:padding="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ananas"
+        app:layout_constraintTop_toBottomOf="@+id/doritos" />
+
+    <CheckBox
+        android:id="@+id/brokul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Brokulka"
+        android:padding="4dp"
+        app:layout_constraintEnd_toStartOf="@+id/ananas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kukurydza" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

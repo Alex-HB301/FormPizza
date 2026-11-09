@@ -9,6 +9,7 @@ import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -73,7 +74,21 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     private boolean validateForm(){
-
+        if(adres.getText().toString().trim().isEmpty()){
+            adres.setError("Uzupelnij!");
+            adres.requestFocus();
+            return false;
+        }
+        if(dostawa.getSelectedItemPosition() == 0){
+            Toast.makeText(this, "Wybierz rodzaj dostawy!", Toast.LENGTH_LONG).show();
+            dostawa.requestFocus();
+            return false;
+        }
+        if(ilosc.getProgress() == 0){
+            Toast.makeText(this, "Nie mozesz zamowic 0 pic!", Toast.LENGTH_LONG).show();
+            ilosc.requestFocus();
+            return false;
+        }
         return true;
     };
 

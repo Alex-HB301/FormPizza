@@ -234,7 +234,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/suwak"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"

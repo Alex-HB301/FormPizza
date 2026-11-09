@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Spinner;
@@ -17,6 +18,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     private RadioGroup rozmiar;
     private CheckBox mielonka, salame, pieczarki, kukurydza, winogron, doritos, brokul, ananas, kurczak;
@@ -24,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText adres;
     private Spinner dostawa;
     private Button zamow, reset;
+    private TextView podsumowanie;
+    private List<String> skladniki = new ArrayList<>();
 
 
     @Override
@@ -54,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
         dostawa = findViewById(R.id.spinner);
         zamow = findViewById(R.id.zamuf);
         reset = findViewById(R.id.reset);
+
+        podsumowanie = findViewById(R.id.podsumowanie);
 
         zamow.setOnClickListener(v -> {if(validateForm()){askForZamuf();}});
         ilosc.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -97,7 +105,37 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private void zamuf(){
+        skladniki.add("Sos");
+        skladniki.add("Ser");
+        if(mielonka.isChecked()){
+            skladniki.add(mielonka.getText().toString());
+        }
+        if(salame.isChecked()){
+            skladniki.add(salame.getText().toString());
+        }
+        if(pieczarki.isChecked()){
+            skladniki.add(pieczarki.getText().toString());
+        }
+        if(kukurydza.isChecked()){
+            skladniki.add(kukurydza.getText().toString());
+        }
+        if(winogron.isChecked()){
+            skladniki.add(winogron.getText().toString());
+        }
+        if(doritos.isChecked()){
+            skladniki.add(doritos.getText().toString());
+        }
+        if(brokul.isChecked()){
+            skladniki.add(brokul.getText().toString());
+        }
+        if(ananas.isChecked()){
+            skladniki.add(ananas.getText().toString());
+        }
+        if(kurczak.isChecked()){
+            skladniki.add(kurczak.getText().toString());
+        }
 
+        podsumowanie.setText("Zamowiles " + ilosc.getProgress() + " pizz, o rozmiarze " + ((RadioButton)findViewById(rozmiar.getCheckedRadioButtonId())).getText() + " , z rodzajem dostawy: " + dostawa.getSelectedItem() + " , o skladnikach: " + skladniki.toString());
     }
 }
 

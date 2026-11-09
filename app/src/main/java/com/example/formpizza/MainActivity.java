@@ -1,5 +1,6 @@
 package com.example.formpizza;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -52,5 +53,19 @@ public class MainActivity extends AppCompatActivity {
         zamow = findViewById(R.id.zamuf);
         reset = findViewById(R.id.reset);
 
+        zamow.setOnClickListener(v -> {if(validateForm()){askForZamuf();}});
+    }
+    private boolean validateForm(){
+
+        return true;
+    };
+
+    private void askForZamuf(){
+        new AlertDialog.Builder(this).setTitle("Czy zamufic?").setMessage("Czy chcesz zamufic pizza?").setPositiveButton("Tak", ((dialog, which) -> zamuf())).setNegativeButton("Nie", null).show();
+    };
+
+    private void zamuf(){
+
     }
 }
+
